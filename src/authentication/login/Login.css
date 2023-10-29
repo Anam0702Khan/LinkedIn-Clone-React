@@ -1,0 +1,87 @@
+.login{
+    background-color: white;
+    height: 100vh;
+}
+
+.logo{
+    height: 45px;
+    width: 45px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.heading{
+    margin-left: 304px;
+    font-family: system-ui;
+    font-weight: 400;
+}
+@media (max-width: 1111px) {
+    /* .heading{
+        /* display: none; */
+        /* margin-left: 30px;
+    }  */
+
+    .auth-inputs{
+        margin-right: 3px;
+    }
+}
+
+.sub-heading{
+    margin-left: 304px;
+    font-family: system-ui;    
+}
+
+.auth-inputs{
+    display: flex;
+    flex-direction: column;
+    margin-left: 300px;
+     gap: 10px;
+     width: 300px;
+     padding: 10px;
+    border-radius: 3px;
+}
+
+.common-input{
+    height: 20px;
+    padding: 10px;
+    margin: 10px 0px;
+}
+
+.sign-btn{
+    margin-left: 308px;
+    font-family: system-ui;
+    width: 300px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    /* padding: 10px; */
+    border-radius: 35px;
+    color: white;
+    background-color: #0072b1;
+    border: none;
+}
+
+.sign-btn:hover{
+    background-color: #004c75;
+}
+
+.or-text{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 450px;
+}
+
+.google-btn-container{
+    margin-left: 350px;
+
+    .go-to-signup{
+        margin-left: 30px;
+    }
+
+   .join-now{
+    color: #004c75;
+    font-family: system-ui;
+    cursor: pointer;
+    /* font-size: 12px; */
+   }
+}
