@@ -68,3 +68,38 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+<!-- <div className="google-btn-container"> -->
+      <!-- <GoogleButton onClick={signInWithGoogle} />
+        {/* <p className="go-to-signup">
+          Already on LinkedIn ?{" "}
+          <span className="join-now" onClick={() => navigate("/login")}>
+            Sign In
+          </span>
+        </p> */}
+      </div> -->
+
+      <!-- const googleSignIn =  async() => {
+     try{
+        let result =  await signInWithPopup(auth,googleProvider)
+        console.log(result);
+        toast.success("SignedIn to LinkedIn")
+        navigate("/feed")
+     } catch(err)  {console.log(err) 
+      toast.error("Please check your Credentials ")}
+  } -->
+      <!-- <p className="or-text">OR</p>  -->
+  <!-- let googleProvider = new GoogleAuthProvider() -->
+ <!-- const signInWithGoogle = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      console.log(result);
+      navigate("/");
+      toast.success("Account created successfully");
+      
+    } catch (error) {
+      toast.error("Cannot Create Account");
+      console.error(error);
+    } -->
+  <!-- }; -->

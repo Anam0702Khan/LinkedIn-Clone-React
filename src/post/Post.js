@@ -4,9 +4,7 @@ import "./Post.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import CommentIcon from "@mui/icons-material/Comment";
-import SendIcon from "@mui/icons-material/Send";
-import ShareIcon from "@mui/icons-material/Share";
-import { red } from "@mui/material/colors";
+
 
 function Post() {
   const [apidata, setApiData] = useState([]);

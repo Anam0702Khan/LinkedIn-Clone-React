@@ -11,15 +11,18 @@ import Feed from "./feed/Feed";
 import { Login } from "@mui/icons-material";
 import Layout from "./Layout";
 import { BrowserRouter } from "react-router-dom";
+import Allroutes from "./routes/Allroutes";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <Provider store={store}>
-      <Layout />
+  <Provider store={store}>
+    {/* <Allroutes/> */}
+      <App />
       <ToastContainer />
     </Provider>
-  </BrowserRouter>
+   </BrowserRouter>
+    
 );
 
 // If you want to start measuring performance in your app, pass a function

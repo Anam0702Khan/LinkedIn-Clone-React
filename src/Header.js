@@ -32,9 +32,7 @@ function Header() {
         <div onClick={() => navigate("/")}>
           <Headeroptions Icon={HomeIcon} title="Home" />
         </div>
-        <div onClick={() => navigate("/network")}>
-          <Headeroptions Icon={PeopleIcon} title="My Network" />
-        </div>
+        
 
         <div onClick={() => navigate("/jobs")}>
           <Headeroptions Icon={BusinessCenterIcon} title="Jobs" />
@@ -47,8 +45,8 @@ function Header() {
         <div onClick={() => navigate("/notification")}>
           <Headeroptions Icon={NotificationsIcon} title="Notifications" />
         </div>
-
-        <Headeroptions avatar={Avatar} title={user.displayName}  />
+       
+        <Headeroptions avatar={Avatar}   title= {user ? user.displayName : "xyz"}  />
       </div>
     </div>
   );

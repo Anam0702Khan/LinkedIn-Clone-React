@@ -33,7 +33,7 @@ function HeaderOptions({ avatar,Icon,title }) {
 
       {avatar && (
         <div>
-          <Avatar name={avatar} onClick={handleAvatarClick} src={user.photoURL}></Avatar>
+          <Avatar name={avatar} onClick={handleAvatarClick} src={ user ? user.photoURL : ''}></Avatar>
         </div>
       )}
 

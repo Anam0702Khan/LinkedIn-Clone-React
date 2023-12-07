@@ -1,25 +1,43 @@
 // import "../styles/App.css";
+import { useEffect } from "react";
+import Register from "./authentication/register/Register";
 import Header from "./Header";
 import Sidebar from "./sidebar/Sidebar";
 import Feed from "./feed/Feed";
-import Widget from "./widget/Widget"
+import Widget from "./widget/Widget";
 import Login from "./authentication/login/Login";
-import Register from "./authentication/register/Register";
-import {  Routes,Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser, selectUser, loginUser } from "./slices/UserSlice";
+import { auth } from "./Firebase";
+import Authentication from "./authentication/Authentication";
+import Allroutes from "./routes/Allroutes";
 import Layout from "./Layout";
 
 function App() {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((userAuth) => {
+      console.log(userAuth);
+      if (userAuth) {
+        dispatch(
+          loginUser({
+            email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: userAuth.displayName,
+            photoURL: userAuth.photoURL,
+          })
+        );
+      } else {
+        dispatch(logoutUser());
+      }
+    });
+  }, []);
+  
   return <div className="app-wrapper">
-    
-      <Routes>
-        <Route path="/" element={<Layout />} />
-        <Route path ="/feed" element= {<Feed />}/>
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element ={<Login />} />
-        <Route path="/jobs" element={<img  className='image' src="https://linked-in-in.netlify.app/static/media/job.5ebfb4c6adce78ffe4c9.png" />} />
-        <Route path="/message" element={<img className="image" src="https://linked-in-in.netlify.app/static/media/message.bf7729535fcb3ef67e99.png" />}/>
-        <Route path="/notification" element={<img className="image" src="https://linked-in-in.netlify.app/static/media/notification.5fb3cb52ba6f1872a678.png" />}/>
-      </Routes>
+      <>{user ? <Allroutes /> : <Authentication />}</>
+      
   </div>;
   
 }
