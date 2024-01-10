@@ -6,7 +6,7 @@ import { selectUser } from './slices/UserSlice';
 import { auth } from './Firebase';
 import { signOut } from 'firebase/auth';
 import { logoutUser } from './slices/UserSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 
 function HeaderOptions({ avatar,Icon,title }) {
   const [sliderVisible, setSliderVisible] = useState(false);
@@ -39,6 +39,12 @@ function HeaderOptions({ avatar,Icon,title }) {
 
       {sliderVisible && (
         <div className="slider"> 
+        <Link to="/user" style={{textDecoration: "none"}}>
+          <button className='logout-btn'>Profile</button>
+          </Link>
+          <Link to="/premium" style={{ textDecoration: "none" }}>
+            <button className='logout-btn' >Premium</button>
+          </Link>
           <button className='logout-btn' onClick={handleLogout}>Logout</button>
         </div>
       )}

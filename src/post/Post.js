@@ -4,7 +4,7 @@ import "./Post.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import CommentIcon from "@mui/icons-material/Comment";
-
+import {Link} from "react-router-dom"
 
 function Post() {
   const [apidata, setApiData] = useState([]);
@@ -12,7 +12,7 @@ function Post() {
   const [comment, setComment] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
-  const apiUrl = "https://academics.newtonschool.co/api/v1/linkedin/post";
+  const apiUrl = "https://academics.newtonschool.co/api/v1/linkedin/post?limit=100";
 
   const getData = () => {
     fetch(apiUrl, {
@@ -35,7 +35,6 @@ function Post() {
   };
 
   const handleComment = () => {
-    // alert("comment")
     setComment(!comment);
     setCommentCount(comment ? commentCount - 1 : commentCount + 1);
   };
@@ -47,25 +46,31 @@ function Post() {
   return (
     <>
       {apidata &&
-        apidata.map((post) => (
+        apidata.map((post,_id) => (
           <div className="posts">
-            <div className="post__header">
-              <div className="post__headerLeft">
-                <Avatar src={post.author.profileImage} />
-                <div className="post__profile_details">
-                  <h3>{post.author.name}</h3>
-                  <p>{post.title}</p>
+            {/* {
+            console.log("idd",post.author._id)
+          } */}
+            <Link to={`/detailPage/${post.author._id}`} style={{textDecoration:"none",color:"black"}}>
+              <div className="post__header">
+                <div className="post__headerLeft">
+                  <Avatar src={post.author.profileImage} />
+                  <div className="post__profile_details">
+                    <h3>{post.author.name}</h3>
+                    <p>{post.title}</p>
+                  </div>
+                </div>
+
+                <div className="post__headerRight">
+                  <MoreVertIcon />
                 </div>
               </div>
+            </Link>
 
-              <div className="post__headerRight">
-                <MoreVertIcon />
-              </div>
-            </div>
 
             <div className="post__body">
               <p>{post.content}</p>
-              <img className="post-img" src={post.channel.image} />
+              <img className="post-img" src={post.channel ? post.channel.image : ""} />
 
               <div className="post__numbers">
                 <span className="like__number">{likeCount} likes</span>
@@ -95,7 +100,7 @@ function Post() {
                 <div onClick={handleComment}>
                   {comment ? (
                     <div>
-                      <CommentIcon style={{ color: '#004c75'}} />
+                      <CommentIcon style={{ color: '#004c75' }} />
                       <span>Comment</span>
                     </div>
                   ) : (
@@ -106,7 +111,7 @@ function Post() {
                   )
                   }
                 </div>
-               
+
               </div>
             </div>
           </div> //last div

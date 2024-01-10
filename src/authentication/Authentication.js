@@ -13,7 +13,6 @@ function Authentication() {
         <div>
         <div style={{backgroundColor:"white"}}>
             {active === "login" ? (<Login />) : (<Register />)}
-            {/* <div className="auth__more"> */}
             <div className='login'>
             <span>
             { active  ==="login" ?

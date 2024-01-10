@@ -5,6 +5,9 @@ import Register from '../authentication/register/Register'
 import Login from '../authentication/login/Login'
 import Header from '../Header'
 import Layout from '../Layout'
+import DetailPage from "../DetailPage"
+import Premium from "../premium/Premium"
+import  UserProfile  from '../UserProfile'
 import "../index.css"
 
 
@@ -18,9 +21,12 @@ function Allroutes() {
         <Route path ="/feed" element= {<Feed />}/>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element ={<Login />} />
-        <Route path="/jobs" element={<img className='image' src='https://linked-in-in.netlify.app/static/media/job.5ebfb4c6adce78ffe4c9.png' />}/>
-        <Route path="/message" element={<img className="image" src="https://linked-in-in.netlify.app/static/media/message.bf7729535fcb3ef67e99.png" />}/>
-        <Route path="/notification" element={<img className="image" src="https://linked-in-in.netlify.app/static/media/notification.5fb3cb52ba6f1872a678.png" />}/>
+        <Route path='/premium' element={<Premium />} />
+        <Route path='/user' element={<UserProfile />} />
+        <Route path='/detailPage/:userId' element={<DetailPage/>} />
+        <Route path="/jobs" element={<h1 style={{fontSize: "32px", marginTop: "30px"}}>Working on it</h1> }/>
+        <Route path="/message" element={<h1 style={{fontSize: "32px", marginTop: "30px"}}>Working on it</h1>}/>
+        <Route path="/notification" element={<h1 style={{fontSize: "32px", marginTop: "30px"}}>Working on it</h1>}/>
       </Routes>
        {/* </BrowserRouter> */}
       
