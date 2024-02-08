@@ -21,7 +21,6 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const provider = new GoogleAuthProvider();
 
   const handleSignup = () => {
     if (!email) {
@@ -33,10 +32,8 @@ function Register() {
     
     createUserWithEmailAndPassword(auth, email, password)
     .then((userAuth) => {
-      // Sign in the user and then update the profile
       signInWithEmailAndPassword(auth, email, password)
         .then(() => {
-          // Update the user profile
           updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: photoURL,
@@ -54,7 +51,7 @@ function Register() {
               navigate("/");
             })
             .catch((err) => {
-              alert(err);
+              toast.error("Invalid Email Or Password")
               console.log(err);
             });
         })
@@ -68,10 +65,7 @@ function Register() {
       console.log(error);
     });
     
-    toast.success("Account created successfully");
     setEmail("");
-    // setName("");
-    // setphotoURL("");
     setPassword("");
     navigate("/");
   };
@@ -86,22 +80,6 @@ function Register() {
       />
       <h1 className="heading">Make the most of your professional life</h1>
       <div className="auth-inputs">
-        {/* <input
-          className="common-input"
-          type="text"
-          placeholder="Full Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          autoComplete="on"
-        /> */}
-        {/* <input
-          className="common-input"
-          type="text"
-          placeholder="photoURL"
-          value={photoURL}
-          onChange={(e) => setphotoURL(e.target.value)}
-          autoComplete="on"
-        /> */}
         <input
           className="common-input"
           type="email"
@@ -123,7 +101,6 @@ function Register() {
       <button className="sign-btn" onClick={handleSignup}>
         Agree & Join
       </button>
-      {/* <p className="or-texts">Name and Photo are not mandatory!!!</p> */}
       
     </div>
   );

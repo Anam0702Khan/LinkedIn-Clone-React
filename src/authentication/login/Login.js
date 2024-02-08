@@ -37,10 +37,8 @@ function Login() {
 
     })
     .catch(error => console.log(error))
-    console.log("ddgyyy");
-    toast.success("Successfully LoginedIn")
-    // toast.error("Cannot login in LinkedIn")
-    navigate("/")
+    toast.error("First Create your Account")
+    // navigate("/")
     
   };
 
